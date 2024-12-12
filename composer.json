@@ -1,0 +1,14 @@
+{
+    "name": "titoroosch/form-generator",
+    "description": "A form generator lib in PHP",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "FormGen\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.0 || ^8.0"
+    }
+}

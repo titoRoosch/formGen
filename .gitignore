@@ -1,0 +1,7 @@
+dockerfile
+docker-compose.yml
+composer.lock
+vendor
+apache-config.conf
+httpd.conf
+.htaccess
