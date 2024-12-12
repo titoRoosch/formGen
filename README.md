@@ -22,7 +22,7 @@ FormGen is a PHP library designed to simplify the creation and rendering of HTML
            }
        ],
        "require": {
-           "titoroosch/formGen": "dev-main"
+           "titoroosch/form-generator": "dev-main"
        }
    }
    ```
