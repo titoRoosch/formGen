@@ -19,9 +19,11 @@ class TextInput extends Input
     }
 
     protected function _renderSetting() {
-        echo "<input type='text' name='{$this->_name}' value='{$this->getValue()}' />";
+        echo '<div style="display:block; width: 100%">';
+        echo "<input id='{$this->_name}' style='display:block; margin-bottom:5px' type='text' name='{$this->_name}' value='{$this->getValue()}' />";
         if(!$this->_validate){
-            echo "<p style='color:red;'>The field '{$this->_label}' is required.</p>";
+            echo "<p style='color:red; font-size:10px; display:block; margin-top:5px'>The field '{$this->_label}' is required.</p>";
         }
+        echo '</div>';
     }
 }

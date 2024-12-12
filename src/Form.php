@@ -48,8 +48,7 @@ class Form {
         foreach ($this->_inputs as $input) {
             $input->render();  
         }
-        echo "<div >";
-        echo "<label for='button' ></label>";
+        echo "<div style='align-items: flex-start'>";
         echo "<button type='submit'>Submit</button>";
         echo "</div>";
         echo "</form>";

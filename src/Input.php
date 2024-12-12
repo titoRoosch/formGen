@@ -31,7 +31,7 @@ abstract class Input {
      *  html form element is displayed (such as a text box, radio button, select, etc)
      */
     public function render() {
-        echo "<div >";
+        echo "<div style='align-items: flex-start'>";
         echo "<label for='{$this->_name}' >{$this->_label}:</label>";
         $this->_renderSetting();
         echo "</div>";
