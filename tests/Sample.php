@@ -1,7 +1,8 @@
 <?php
-require_once "../src/Form.php";
-require_once "../src/Input.php";
-require_once "../src/TextInput.php";
+require_once '../vendor/autoload.php'; // Ajuste o caminho conforme necessário
+
+use FormGen\Form;
+use FormGen\TextInput;
 
 $form = new Form();
 

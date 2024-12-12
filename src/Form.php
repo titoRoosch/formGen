@@ -1,4 +1,7 @@
 <?php
+
+namespace FormGen;
+
 class Form {
 
     protected $_inputs;
