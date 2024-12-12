@@ -6,14 +6,16 @@ abstract class Input {
     protected $_name;
     protected $_label;
     protected $_initVal;
+    protected $_required;
 
     abstract public function validate();
     abstract protected function _renderSetting();
 
-    public function __construct($name, $label, $initVal) {
+    public function __construct($name, $label, $initVal, $required = true) {
         $this->_name = $name;
         $this->_label = $label;
         $this->_initVal = $initVal;
+        $this->_required = $required;
     }
 
     /**
@@ -29,8 +31,8 @@ abstract class Input {
      *  html form element is displayed (such as a text box, radio button, select, etc)
      */
     public function render() {
-        echo "<div style='margin-bottom: 15px;'>";
-        echo "<label for='{$this->_name}' >{$this->_label}</label>";
+        echo "<div >";
+        echo "<label for='{$this->_name}' >{$this->_label}:</label>";
         $this->_renderSetting();
         echo "</div>";
     }

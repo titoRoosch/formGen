@@ -1,23 +1,27 @@
 /* Estilo geral do formulário */
 form {
-  background-color: #e9f8e8; /* Fundo verde claro */
+  background-color: #fdfdfd; /* Fundo verde claro */
   border: 2px solid #008000; /* Borda verde */
   border-radius: 5px;
   padding: 15px;
-  width: 300px;
+  width: 800px;
   font-family: Arial, sans-serif;
 }
 
 /* Estilo para os rótulos */
 label {
-  display: block;
+  display: inline-block;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-right: 10px;
+  width: 30%; /* Define uma largura fixa para alinhar com os inputs */
+  text-align: left;
+  background-color: #e9f8e8;
+  padding: 8px;
 }
 
 /* Estilo para os campos de entrada */
 input[type="text"] {
-  width: 95%;
+  width: 65%; /* Ajuste para ficar ao lado do label */
   padding: 8px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -26,24 +30,27 @@ input[type="text"] {
 }
 
 /* Estilo para o botão de envio */
-input[type="submit"] {
-  background-color: #32cd32; /* Verde vibrante */
-  color: white;
-  font-weight: bold;
+button {
+  background-color: #04AA6D; /* Green */
   border: none;
-  border-radius: 3px;
-  padding: 10px 15px;
-  cursor: pointer;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s;
+  border-radius: 20px;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 /* Efeito ao passar o mouse no botão */
-input[type="submit"]:hover {
+button {
   background-color: #228b22; /* Verde mais escuro */
 }
 
 /* Ajuste de espaçamento interno nos rótulos e entradas */
 div {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
