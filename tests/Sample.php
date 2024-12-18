@@ -1,5 +1,5 @@
 <?php
-require_once '../vendor/autoload.php'; // Ajuste o caminho conforme necessário
+require_once '../vendor/autoload.php'; 
 
 use FormGen\Form;
 use FormGen\TextInput;
@@ -17,6 +17,7 @@ $form->addInput(new TextInput("lastname", "Last Name", "Wayne"));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Example</title>
+    <h2>teste</h2>
     <!-- Link para o arquivo CSS -->
     <link rel="stylesheet" href="/assets/styles.css">
 </head>

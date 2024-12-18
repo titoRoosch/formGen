@@ -46,7 +46,7 @@ class Form {
         echo "<form method='POST'>";
 
         foreach ($this->_inputs as $input) {
-            $input->render();  
+            echo $input->render();  
         }
         echo "<div style='align-items: flex-start'>";
         echo "<button type='submit'>Submit</button>";
