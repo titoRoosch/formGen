@@ -46,10 +46,23 @@ Here’s a simple example of how to use the library to generate a form:
 
 ```php
 <?php
-require_once 'vendor/autoload.php'; // Ajuste o caminho conforme necessário
+require_once '../vendor/autoload.php'; 
 
 use FormGen\Form;
 use FormGen\TextInput;
+use FormGen\RequiredValidation;
+
+$form = new Form();
+
+$firstName = new TextInput("firstname", "First Name", "Bruce");
+$firstName->addValidation(new RequiredValidation());
+$form->addInput($firstName);
+
+$form->addInput(new TextInput("middlename", "Middle Name", "Thomas"));
+
+$lastName = new TextInput("lastname", "Last Name", "Wayne");
+$lastName->addValidation(new RequiredValidation());
+$form->addInput($lastName);
 
 ?>
 <!DOCTYPE html>
@@ -58,20 +71,12 @@ use FormGen\TextInput;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Example</title>
-    <!-- Link for the CSS file -->
-    <link rel="stylesheet" href="vendor/titoroosch/form-generator/assets/styles.css">
+    <h2>teste</h2>
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-    <h1>test lib</h1>
 <?php
-
-$form = new Form();
-
-$form->addInput(new TextInput("firstname", "First Name", "Bruce"));
-// the fourth parameter indicates if a input is required or not, defaut true
-$form->addInput(new TextInput("middlename", "Middle Name", "Thomas", false));
-$form->addInput(new TextInput("lastname", "Last Name", "Wayne"));
-
 if ($_SERVER['REQUEST_METHOD']=="POST") {
     if ($form->validate()) {
         // display user info
