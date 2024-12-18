@@ -10,8 +10,12 @@ $form = new Form();
 $firstName = new TextInput("firstname", "First Name", "Bruce");
 $firstName->addValidation(new RequiredValidation());
 $form->addInput($firstName);
-$form->addInput(new TextInput("middlename", "Middle Name", "Thomas", false));
-$form->addInput(new TextInput("lastname", "Last Name", "Wayne"));
+
+$form->addInput(new TextInput("middlename", "Middle Name", "Thomas"));
+
+$lastName = new TextInput("lastname", "Last Name", "Wayne");
+$lastName->addValidation(new RequiredValidation());
+$form->addInput($lastName);
 
 ?>
 <!DOCTYPE html>

@@ -48,9 +48,15 @@ class Form {
         foreach ($this->_inputs as $input) {
             echo $input->render();  
         }
-        echo "<div style='align-items: flex-start'>";
-        echo "<button type='submit'>Submit</button>";
-        echo "</div>";
+
+        if(empty($this->_inputs)){
+            echo "<p>No inputs available.</p>";
+        }else{
+            echo "<div style='align-items: flex-start'>";
+            echo "<button type='submit'>Submit</button>";
+            echo "</div>";
+        }
+
         echo "</form>";
     }
 }

@@ -8,6 +8,21 @@ use FormGen\RequiredValidation;
 
 class FormTest extends TestCase {
 
+    public function testEmptyFormRendering() {
+        $form = new Form();
+    
+        ob_start();
+        $form->display();
+        $output = ob_get_clean();
+    
+        $this->assertStringContainsString('<p>No inputs available.</p>', $output);
+    }
+
+    public function testNoInputs() {
+        $form = new Form();
+        $this->assertTrue($form->validate());
+    }
+
     public function testFormValidationPasses() {
         $_POST['firstname'] = 'Bruce';
         $_POST['lastname'] = 'Wayne';
