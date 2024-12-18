@@ -3,10 +3,13 @@ require_once '../vendor/autoload.php';
 
 use FormGen\Form;
 use FormGen\TextInput;
+use FormGen\RequiredValidation;
 
 $form = new Form();
 
-$form->addInput(new TextInput("firstname", "First Name", "Bruce"));
+$firstName = new TextInput("firstname", "First Name", "Bruce");
+$firstName->addValidation(new RequiredValidation());
+$form->addInput($firstName);
 $form->addInput(new TextInput("middlename", "Middle Name", "Thomas", false));
 $form->addInput(new TextInput("lastname", "Last Name", "Wayne"));
 

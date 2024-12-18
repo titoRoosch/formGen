@@ -2,20 +2,37 @@
 
 namespace FormGen;
 
+use FormGen\Validation;
+
 abstract class Input {
     protected $_name;
     protected $_label;
     protected $_initVal;
-    protected $_required;
+    protected $_validations = [];
+    protected $_errorMessages = [];
 
-    abstract public function validate();
+   // abstract public function validate();
     abstract protected function _renderSetting();
 
-    public function __construct($name, $label, $initVal, $required = true) {
+    public function __construct($name, $label, $initVal) {
         $this->_name = $name;
         $this->_label = $label;
         $this->_initVal = $initVal;
-        $this->_required = $required;
+    }
+
+    public function addValidation(Validation $validation) {
+        $this->_validations[] = $validation;
+    }
+
+    public function validate(): bool {
+        $isValid = true;
+        foreach ($this->_validations as $validation) {
+            if (!$validation->validate($this->getValue())) {
+                $this->_errorMessages[] = $validation->getErrorMessage();
+                $isValid = false;
+            }
+        }
+        return $isValid;
     }
 
     /**
