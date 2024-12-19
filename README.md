@@ -39,6 +39,40 @@ FormGen is a PHP library designed to simplify the creation and rendering of HTML
 
 ---
 
+## Installation with docker
+
+### Requirements
+- Docker
+- docker-compose
+
+### Steps
+1. Clone the repository
+
+2. build the container
+    ```bash
+    docker-compose build
+    ```
+3. start the container
+    ```bash
+    docker-compose build
+    ```
+4. access the container
+    ```bash
+    docker-compose exec web bash
+    ```
+5. install the composer dependencies
+    ```bash
+    composer install
+    ```
+6. exit the container
+    ```bash
+    composer install
+    ```
+7. run the tests
+    ```bash
+    docker-compose exec web vendor/bin/phpunit --bootstrap vendor/autoload.php tests
+    ```
+
 ## Usage
 
 ### Example
@@ -46,7 +80,7 @@ Here’s a simple example of how to use the library to generate a form:
 
 ```php
 <?php
-require_once '../vendor/autoload.php'; 
+require_once 'vendor/autoload.php'; 
 
 use FormGen\Form;
 use FormGen\TextInput;
