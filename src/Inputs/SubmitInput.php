@@ -6,8 +6,9 @@ class SubmitInput extends Input
 {
     protected function _renderSetting()
     {
-        echo "<div class='input'>";
-        echo "<button class='action-button' type='submit'>".$this->_name."</button>";
-        echo "</div>";
+        $html = "<div class='". $this->_classes['div_class'] ."'>";
+        $html .= "<button  class='". $this->_classes['field_class'] ."' type='submit'>".$this->_name."</button>";
+        $html .= "</div>";
+        return $html;
     }
 }

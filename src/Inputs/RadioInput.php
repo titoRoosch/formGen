@@ -15,21 +15,21 @@ class RadioInput extends Input
 
     protected function _renderSetting() {
 
-        $html = "<div class='input'>";
+        $html = "<div class='". $this->_classes['div_class'] ."'>";
 
      
         foreach ($this->_options as $option) {
             $checked = ($this->getValue() === $option) ? 'checked' : '';
-            $html .= "<label><input type='radio' name='{$this->_name}' value='{$option}' {$checked}> {$option}</label>";
+            $html .= "<label class=''". $this->_classes['field_class'] ."''><input type='radio' name='{$this->_name}' value='{$option}' {$checked}> {$option}</label>";
         }
 
         if(isset($this->_label)){
-            $html .= "<label class='input-label-static' for='{$this->_name}' >{$this->_label}:</label>";
+            $html .= "<label class=''". $this->_classes['label_class'] ."'' for='{$this->_name}' >{$this->_label}:</label>";
         }   
         $html .= "</div>";
 
         foreach($this->_errorMessages as $message){
-            $html .= "<p class='input-error'> {$message}.</p>";
+            $html .= "<p class='". $this->_classes['error_class'] ."'> {$message}.</p>";
         }
 
         return $html;

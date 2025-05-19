@@ -12,19 +12,29 @@ $form = new Form('#', "card-form");
 
 $validation = [new RequiredValidation()];
 $firstName = new TextInput("firstname", "First Name", "", $validation);
+$firstName->setClasses('input', 'input-field', 'input-label', 'input-error');
 $form->addInput($firstName);
 
-$form->addInput(new TextInput("middlename", "Middle Name", ""));
+$middleName = new TextInput("middlename", "Middle Name", ""); 
+$middleName->setClasses('input', 'input-field', 'input-label', 'input-error');
+$form->addInput($middleName);
 
 $lastName = new TextInput("lastname", "Last Name", "");
+$lastName->setClasses('input', 'input-field', 'input-label', 'input-error');
 $lastName->addValidation(new RequiredValidation());
 $form->addInput($lastName);
 
 $gender = new RadioInput("gender", "Gender", "other", ["male", "female", "other"]);
+$gender->setClasses('input', '', 'input-label-static', 'input-error');
 $form->addInput($gender);
 
-$form->addInput(new SubmitInput("submit", null, "submit"));
-$form->addInput(new ClearInput("clear", null, "clear"));
+$submit = new SubmitInput("submit", null, "submit");
+$submit->setClasses('input', 'action-button');
+$form->addInput($submit);
+
+$clear = new ClearInput("clear", null, "clear");
+$clear->setClasses('input', 'reset-button');
+$form->addInput($clear);
 
 ?>
 <!DOCTYPE html>

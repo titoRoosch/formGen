@@ -11,6 +11,12 @@ abstract class Input {
     protected $_initVal;
     protected $_validations = [];
     protected $_errorMessages = [];
+    protected $_classes = [
+            'div_class' => '',
+            'field_class' => '',
+            'label_class' => '',
+            'error_class' => '',
+    ];
 
    // abstract public function validate();
     abstract protected function _renderSetting();
@@ -24,6 +30,15 @@ abstract class Input {
 
     public function addValidation(Validation $validation) {
         $this->_validations[] = $validation;
+    }
+
+    public function setClasses($div = '', $field = '', $label = '', $error = ''){
+        $this->_classes = [
+            'div_class' => $div,
+            'field_class' => $field,
+            'label_class' => $label,
+            'error_class' => $error
+        ];
     }
 
     public function validate(): bool {
