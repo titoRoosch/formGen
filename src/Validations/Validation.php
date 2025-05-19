@@ -1,5 +1,6 @@
 <?php
-namespace FormGen;
+
+namespace FormGen\Validations;
 
 abstract class Validation {
     abstract public function validate($value): bool;

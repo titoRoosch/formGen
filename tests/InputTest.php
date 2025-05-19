@@ -15,8 +15,14 @@ class InputTest extends TestCase {
     }
 
     public function testValidateNotRequiredField() {
-        $_POST['latname'] = 'Bruce';
-        $input = new TextInput('latname', 'First Name', '');
+        $_POST['lastname'] = '';
+        $input = new TextInput('lastname', 'First Name', '');
+        $this->assertTrue($input->validate());
+    }
+
+    public function testValidateNotRequiredEmptyField() {
+        $_POST['lastname'] = '';
+        $input = new TextInput('lastname', 'First Name', '');
         $this->assertTrue($input->validate());
     }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace FormGen;
+namespace FormGen\Inputs;
 
-use FormGen\Input;
+use FormGen\Inputs\Input;
 
 class TextInput extends Input 
 {

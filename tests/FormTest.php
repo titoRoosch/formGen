@@ -3,7 +3,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
 use FormGen\Form;
-use FormGen\TextInput;
+use FormGen\Inputs\TextInput;
 use FormGen\RequiredValidation;
 
 class FormTest extends TestCase {

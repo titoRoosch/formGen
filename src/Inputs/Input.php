@@ -1,8 +1,9 @@
 <?php
 
-namespace FormGen;
+namespace FormGen\Inputs;
 
-use FormGen\Validation;
+use FormGen\Validations\Validation;
+use FormGen\Validations\RequiredValidation;
 
 abstract class Input {
     protected $_name;
@@ -14,10 +15,11 @@ abstract class Input {
    // abstract public function validate();
     abstract protected function _renderSetting();
 
-    public function __construct($name, $label, $initVal) {
+    public function __construct($name, $label, $initVal, array $validation = []) {
         $this->_name = $name;
         $this->_label = $label;
         $this->_initVal = $initVal;
+        $this->_validations = $validation;
     }
 
     public function addValidation(Validation $validation) {

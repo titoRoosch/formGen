@@ -1,5 +1,6 @@
 <?php
-namespace FormGen;
+
+namespace FormGen\Validations;
 
 class RequiredValidation extends Validation {
     private $errorMessage;
