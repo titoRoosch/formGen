@@ -80,23 +80,42 @@ Here’s a simple example of how to use the library to generate a form:
 
 ```php
 <?php
-require_once 'vendor/autoload.php'; 
+require_once '../vendor/autoload.php'; 
 
 use FormGen\Form;
-use FormGen\TextInput;
-use FormGen\RequiredValidation;
+use FormGen\Inputs\TextInput;
+use FormGen\Inputs\RadioInput;
+use FormGen\Inputs\SubmitInput;
+use FormGen\Inputs\ClearInput;
+use FormGen\Validations\RequiredValidation;
 
-$form = new Form();
+$form = new Form('#', "card-form");
 
-$firstName = new TextInput("firstname", "First Name", "Bruce");
-$firstName->addValidation(new RequiredValidation());
+$validation = [new RequiredValidation()];
+$firstName = new TextInput("firstname", "First Name", "", $validation);
+$firstName->setClasses('input', 'input-field', 'input-label', 'input-error');
 $form->addInput($firstName);
 
-$form->addInput(new TextInput("middlename", "Middle Name", "Thomas"));
+$middleName = new TextInput("middlename", "Middle Name", ""); 
+$middleName->setClasses('input', 'input-field', 'input-label', 'input-error');
+$form->addInput($middleName);
 
-$lastName = new TextInput("lastname", "Last Name", "Wayne");
+$lastName = new TextInput("lastname", "Last Name", "");
+$lastName->setClasses('input', 'input-field', 'input-label', 'input-error');
 $lastName->addValidation(new RequiredValidation());
 $form->addInput($lastName);
+
+$gender = new RadioInput("gender", "Gender", "other", ["male", "female", "other"]);
+$gender->setClasses('input', '', 'input-label-static', 'input-error');
+$form->addInput($gender);
+
+$submit = new SubmitInput("submit", null, "submit");
+$submit->setClasses('input', 'action-button');
+$form->addInput($submit);
+
+$clear = new ClearInput("clear", null, "clear");
+$clear->setClasses('input', 'reset-button');
+$form->addInput($clear);
 
 ?>
 <!DOCTYPE html>
@@ -105,11 +124,21 @@ $form->addInput($lastName);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Example</title>
-    <h2>teste</h2>
+    <h2></h2>
     <!-- Link para o arquivo CSS -->
-    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="stylesheet" href="/assets/template.css">
 </head>
 <body>
+
+<div class="container">
+	<!-- code here -->
+	<div class="card">
+		<div class="card-image">	
+			<h2 class="card-heading">
+				Get started
+				<small>Let us create your account</small>
+			</h2>
+		</div>
 <?php
 if ($_SERVER['REQUEST_METHOD']=="POST") {
     if ($form->validate()) {
@@ -117,7 +146,10 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
         $firstName = $form->getValue("firstname");
         $middleName = $form->getValue("middlename")." ";
         $lastName = $form->getValue("lastname");
-        echo $firstName." ".$middleName.$lastName;
+        $gender = $form->getValue("gender");
+        echo $firstName." ".$middleName." ".$lastName;
+        echo "<br>";
+        echo $gender;
     } else {
         $form->display();
     }
@@ -125,6 +157,12 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
     $form->display();
 }
 ?>
+
+<div class="card-info">
+			<p>By signing up you are agreeing to our <a href="#">Terms and Conditions</a></p>
+		</div>
+	</div>
+</div>
 </body>
 </html>
 ```
