@@ -8,13 +8,18 @@ class TextInput extends Input
 {
 
     protected function _renderSetting() {
-        $html = '<div style="display:block; width: 100%">';
-        $html .= "<input id='{$this->_name}' style='display:block; margin-bottom:5px' type='text' name='{$this->_name}' value='{$this->getValue()}' />";
+        $html = "<div class='input'>";
+        $html .= "<input id='{$this->_name}' class='input-field' placeholder=' ' type='text' name='{$this->_name}' value='{$this->getValue()}' />";
+        
+        if(isset($this->_label)){
+            $html .= "<label class='input-label' for='{$this->_name}' >{$this->_label}:</label>";
+        }
+        $html .= "</div>";
+
         foreach($this->_errorMessages as $message){
-            $html .= "<p style='color:red; font-size:10px; display:block; margin-top:5px'> {$message}.</p>";
+            $html .= "<p class='input-error'> {$message}.</p>";
         }
 
-        $html .= '</div>';
 
         return $html;
     }

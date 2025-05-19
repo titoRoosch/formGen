@@ -9,11 +9,13 @@ class Form {
     protected $_inputs;
     protected $_buttons;
     protected $_action;
+    protected $_class;
 
-    public function __construct($action="#") {
+    public function __construct($action="#", $class = '') {
         $this->_inputs = [];
         $this->_buttons = [];
         $this->_action = $action;
+        $this->_class = $class;
     }
 
     /**
@@ -49,7 +51,7 @@ class Form {
      *  draws the outer form element, and the markup for each input, one input per row
      */
     public function display() {
-        echo "<form method='POST' action='$this->_action'>";
+        echo "<form method='POST' action='$this->_action' class='$this->_class'>";
 
         foreach ($this->_inputs as $input) {
             echo $input->render();  

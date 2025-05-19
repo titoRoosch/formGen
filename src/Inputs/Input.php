@@ -15,7 +15,7 @@ abstract class Input {
    // abstract public function validate();
     abstract protected function _renderSetting();
 
-    public function __construct($name, $label, $initVal, array $validation = []) {
+    public function __construct($name, $label = null, $initVal = '', array $validation = []) {
         $this->_name = $name;
         $this->_label = $label;
         $this->_initVal = $initVal;
@@ -50,10 +50,7 @@ abstract class Input {
      *  html form element is displayed (such as a text box, radio button, select, etc)
      */
     public function render() {
-        $html = "<div style='align-items: flex-start'>";
-        $html .= "<label for='{$this->_name}' >{$this->_label}:</label>";
-        $html .= $this->_renderSetting();
-        $html .= "</div>";
+        $html = $this->_renderSetting();
 
         return $html;
     }

@@ -2,8 +2,8 @@
 require_once __DIR__ . '/../vendor/autoload.php'; 
 
 use PHPUnit\Framework\TestCase;
-use FormGen\TextInput;
-use FormGen\RequiredValidation;
+use FormGen\Inputs\TextInput;
+use FormGen\Validations\RequiredValidation;
 
 class InputTest extends TestCase {
 

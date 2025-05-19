@@ -14,16 +14,23 @@ class RadioInput extends Input
     }
 
     protected function _renderSetting() {
-        $html = '<div style="display:block; width: 100%">';
+
+        $html = "<div class='input'>";
+
+     
         foreach ($this->_options as $option) {
             $checked = ($this->getValue() === $option) ? 'checked' : '';
-            $html .= "<label><input type='radio' name='{$this->_name}' value='{$option}' {$checked}> {$option}</label><br>";
-        }
-        foreach($this->_errorMessages as $message){
-            $html .= "<p style='color:red; font-size:10px; display:block; margin-top:5px'> {$message}.</p>";
+            $html .= "<label><input type='radio' name='{$this->_name}' value='{$option}' {$checked}> {$option}</label>";
         }
 
-        $html .= '</div>';
+        if(isset($this->_label)){
+            $html .= "<label class='input-label-static' for='{$this->_name}' >{$this->_label}:</label>";
+        }   
+        $html .= "</div>";
+
+        foreach($this->_errorMessages as $message){
+            $html .= "<p class='input-error'> {$message}.</p>";
+        }
 
         return $html;
     }
