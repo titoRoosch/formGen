@@ -25,7 +25,7 @@ $lastName->addValidation(new RequiredValidation());
 $form->addInput($lastName);
 
 $gender = new RadioInput("gender", "Gender", "other", ["male", "female", "other"]);
-$gender->setClasses('input', '', 'input-label-static', 'input-error');
+$gender->setClasses('input', "", 'input-label-static', 'input-error');
 $form->addInput($gender);
 
 $submit = new SubmitInput("submit", null, "submit");

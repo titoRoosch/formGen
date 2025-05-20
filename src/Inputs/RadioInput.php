@@ -24,7 +24,7 @@ class RadioInput extends Input
         }
 
         if(isset($this->_label)){
-            $html .= "<label class=''". $this->_classes['label_class'] ."'' for='{$this->_name}' >{$this->_label}:</label>";
+            $html .= "<label class='". $this->_classes['label_class'] ."' for='{$this->_name}' >{$this->_label}:</label>";
         }   
         $html .= "</div>";
 
